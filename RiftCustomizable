@@ -1,0 +1,13 @@
+local Tool = game:GetObjects("rbxassetid://12328585131")[1]
+local Rift = game.ReplicatedStorage.Misc.Rift:Clone()
+
+--// Coding
+Rift.Parent = game.Workspace.CurrentRooms["0"].RiftSpawn
+Rift.Center.CFrame = game.Workspace.CurrentRooms["0"].RiftSpawn.Center.CFrame
+game.Workspace.CurrentRooms["0"].RiftSpawn.RiftPrompt.Enabled = true
+game.Workspace.CurrentRooms["0"].RiftSpawn.Rift.Center.ItemHolder.Item.Texture = Tool.TextureId
+game.Workspace.CurrentRooms["0"].RiftSpawn.RiftPrompt.Triggered:Connect(function()
+    Tool.Parent = game.Players.LocalPlayer.Backpack
+    game.Workspace.CurrentRooms["0"].RiftSpawn.Rift:Destroy()
+    game.Workspace.CurrentRooms["0"].RiftSpawn.RiftPrompt.Enabled = false
+end)
